@@ -59,6 +59,7 @@ table {
 :root{
 	font-size: 16px;
 	--fonts:'Montserrat' sans-serif;
+	--cursive-font: 'Molle', cursive;
 	--white: 	 #ffffff;
 	--black: 	 #222222;
 	--lightblue: #499BD2;
@@ -86,17 +87,16 @@ table {
 body {
 	font-family:var(--fonts);
 	margin: 0px auto;
-	padding:0;
-	/*max-width:1200px; */
+	padding:0px;
 	width: 100%;
 	background-color:var(--white);
 }
 h1, h2, h3 {	/* cursive font */ 
-	font-family: 'Molle', cursive;
+	font-family: var(--cursive-font)
 }
 h1{
 	margin-top: 20px;
-	font-size: 2.0rem;
+	font-size: 1.3rem;
 }
 h2{
 	font-size: 1.74rem;
@@ -108,13 +108,13 @@ h3{
 }
 h4{
 	font-weight: 600;
-	font-family: 'Montserrat';
+	font-family: var(--fonts);
 	font-size: 1.25rem;
 	padding: 10px 0px;
 }
 p{
-	font-family:'Montserrat';
-	line-height: 1.25rem;
+	font-family:var(--fonts);
+	font-size: 0.9rem;
 }
 q{
 	font-weight: 400;
@@ -129,11 +129,14 @@ label{
 	color: var(--black);
 }
 article{
-	/*display:flex;
+	display:flex;
 	flex-direction: column;
-	justify-content:center;*/
+	flex-wrap: nowrap;
+	justify-content:center;
 	
 }
+
+
 /***** INTRO   ***************/
 #intro {
 	margin-bottom: 15px;
@@ -200,17 +203,18 @@ nav {
 }
 #menu-toggle{
 	display: block;
-	
-	/*top: 10px;
-	left: 0px;
-	z-index: 1;*/
+	position: absolute;
+	top: 34px;
+	left: 80%;
+	z-index: 1;
 	-webkit-user-select: none;
 	user-select: none;
 }
 ul {
 	font-family: var(--fonts);
 	position: relative;
-	left: 600px;
+	left: 800px;
+	top: 0;
 	display:flex;
 	flex-direction: column;
 	justify-content: center;
@@ -227,20 +231,26 @@ label[for="toggle"]{
 	position: relative;
 	/* scoot over on top of checkbox */
 	left: -30px;
+	top: -20px;
 	color: var(--black);
 	background-color: var(--gold);
 	/*increase padding for button size */
-	padding: 5px 0px;
+	padding: 8px 50px 8px 12px;
+	overflow: hidden;
 }
 #menu-toggle input:checked ~ ul{
 	background-color: var(--lightblue);
-	position: sticky;
-	top: 0;
+	position: relative;
+	left: -47px;
+	overflow: hidden;
 	/*left: 0px;*/
 }
 #menu-toggle input:checked ~ label[for="toggle"]{
 	color: var(--white);
 	background-color: var(--black);
+}
+#menu-toggle input:checked ~ h1 {
+	font-size: 1.3rem;
 }
 
 /***** MENU TOGGLE *************/
@@ -273,7 +283,8 @@ header a {
 	
 }
 header a img {
-	width: auto;
+	width: 100%;
+	height:auto;
 	background-color: transparent;
 }
 h1 {
