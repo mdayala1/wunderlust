@@ -29,9 +29,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-html, body {
-	overflow-x: hidden;
-}
 body {
 	line-height: 1;
 }
@@ -85,14 +82,15 @@ table {
 	width: auto;
 }
 body {
-	font-family:var(--fonts);
+	font-family:'Montserrat' sans-serif;
 	margin: 0px auto;
 	padding:0px;
-	width: 100%;
+	min-width: 250px;
+	max-width: 2000px;
 	background-color:var(--white);
 }
 h1, h2, h3 {	/* cursive font */ 
-	font-family: var(--cursive-font)
+	font-family: var(--cursive-font);
 }
 h1{
 	margin-top: 20px;
@@ -108,12 +106,12 @@ h3{
 }
 h4{
 	font-weight: 600;
-	font-family: var(--fonts);
+	font-family: 'Montserrat';
 	font-size: 1.25rem;
 	padding: 10px 0px;
 }
 p{
-	font-family:var(--fonts);
+	font-family:'Montserrat';
 	font-size: 0.9rem;
 }
 q{
@@ -197,10 +195,6 @@ article{
 
 /***** INTRO   ***************/
 /***** MENU TOGGLE *************/
-nav {
-	/*position: absolute;*/
-
-}
 #menu-toggle{
 	display: block;
 	position: absolute;
@@ -212,7 +206,7 @@ nav {
 }
 ul {
 	font-family: var(--fonts);
-	position: relative;
+	position: absolute;
 	left: 800px;
 	top: 0;
 	display:flex;
@@ -228,7 +222,7 @@ li a {
 }
 /* make toggle into a button labeled menu */
 label[for="toggle"]{
-	position: relative;
+	position: absolute;
 	/* scoot over on top of checkbox */
 	left: -30px;
 	top: -20px;
@@ -240,7 +234,7 @@ label[for="toggle"]{
 }
 #menu-toggle input:checked ~ ul{
 	background-color: var(--lightblue);
-	position: relative;
+	position: absolute;
 	left: -47px;
 	overflow: hidden;
 	/*left: 0px;*/
@@ -539,7 +533,11 @@ fieldset {
 	grid-template-areas: "email-contact" "text-contact" "phone-contact";
 }
 /*  CONTACT US ***************************/
-
+@media screen and (min-width:450px){
+	h1{
+		font-size: 2.0rem;
+	}
+}
 @media screen and (min-width:768px) {
 	h1{
 		font-size: 3rem;
@@ -564,7 +562,7 @@ fieldset {
 	}
 	#menu-toggle{
 		
-		/*position: relative; */
+		position: relative; 
 		 top: 0px;
 		left: 0px;
 
@@ -734,20 +732,10 @@ fieldset {
 
 	/*  ********   Intro   *********/
 	
-
-	#intro div{
-		
-		
-	}
-
-	#img-grid{
-		/*display: inline;
-		grid-template-columns: 1;*/
-		
-	}
-	
 	/*  ********   Intro   *********/
 	#plan div {
+		padding-top: 30px;
+		padding-bottom: 30px;
 		flex-wrap: nowrap;
 		flex-grow: 1;
 		gap: 1rem;
