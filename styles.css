@@ -29,6 +29,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html, body {
+	overflow-x: hidden;
+}
 body {
 	line-height: 1;
 }
@@ -46,4 +49,752 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* for custom radio buttons */
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+:root{
+	font-size: 16px;
+	--fonts:'Montserrat' sans-serif;
+	--white: 	 #ffffff;
+	--black: 	 #222222;
+	--lightblue: #499BD2;
+	--magenta:   #9B26B0;
+	--turquoise: #55BCD5;
+	--gold:      #F6D64A;
+
+}
+/*  General settings */
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat:wght@400;600&display=swap');
+
+#skip,  .sr-only {
+	position:absolute;
+	top:auto;
+	height: 1px;
+	width: 1px;
+	left: -10000px;
+	overflow: hidden;
+}
+#skip:focus {
+	position: static;
+	height: auto;
+	width: auto;
+}
+body {
+	font-family:var(--fonts);
+	margin: 0px auto;
+	padding:0;
+	/*max-width:1200px; */
+	width: 100%;
+	background-color:var(--white);
+}
+h1, h2, h3 {	/* cursive font */ 
+	font-family: 'Molle', cursive;
+}
+h1{
+	margin-top: 20px;
+	font-size: 2.0rem;
+}
+h2{
+	font-size: 1.74rem;
+}
+h3{
+	font-size:1.5rem;
+	margin: 15px 0px 15px 0px;
+	padding-left: 10px;
+}
+h4{
+	font-weight: 600;
+	font-family: 'Montserrat';
+	font-size: 1.25rem;
+	padding: 10px 0px;
+}
+p{
+	font-family:'Montserrat';
+	line-height: 1.25rem;
+}
+q{
+	font-weight: 400;
+	font-style: italic;
+}
+label{
+	font-weight: 400;
+	font-family: 'Montserrat';
+	font-size: 1rem;
+}
+::placeholder {
+	color: var(--black);
+}
+article{
+	/*display:flex;
+	flex-direction: column;
+	justify-content:center;*/
+	
+}
+/***** INTRO   ***************/
+#intro {
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#intro p{
+	padding: 10px;
+	grid-area: p-intro;
+}
+#intro h2 {
+	padding-left: 15px;
+	grid-area: h1-intro;
+}
+#img-grid img:nth-child(1) {
+	display:block;
+	grid-area: pic1-intro;
+}
+#img-grid img:nth-child(2) {
+	display:block;
+	grid-area: pic2-intro;
+}
+#img-grid picture {
+	display:block;
+	grid-area: pic3-intro;
+}
+
+
+
+#intro div{
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: "h1-intro" "p-intro";
+}
+#img-grid{
+	
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-template-rows:repeat(3, auto);
+	grid-template-areas: "pic1-intro"
+						 "pic2-intro "
+						 "pic3-intro ";
+	gap: 1rem;
+	grid-area: img-intro;
+}
+
+#img-grid img {
+	
+	display:block;
+	margin: 0;
+	width: 100%;
+}
+#img-grid picture img{
+	display:block;
+	object-fit:contain;
+}
+
+/***** INTRO   ***************/
+/***** MENU TOGGLE *************/
+nav {
+	/*position: absolute;*/
+
+}
+#menu-toggle{
+	display: block;
+	
+	/*top: 10px;
+	left: 0px;
+	z-index: 1;*/
+	-webkit-user-select: none;
+	user-select: none;
+}
+ul {
+	font-family: var(--fonts);
+	position: relative;
+	left: 600px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: .5rem;
+
+}
+
+li a {
+	background-color: var(--lightblue);
+	padding-left: 20%;
+}
+/* make toggle into a button labeled menu */
+label[for="toggle"]{
+	position: relative;
+	/* scoot over on top of checkbox */
+	left: -30px;
+	color: var(--black);
+	background-color: var(--gold);
+	/*increase padding for button size */
+	padding: 5px 0px;
+}
+#menu-toggle input:checked ~ ul{
+	background-color: var(--lightblue);
+	position: sticky;
+	top: 0;
+	/*left: 0px;*/
+}
+#menu-toggle input:checked ~ label[for="toggle"]{
+	color: var(--white);
+	background-color: var(--black);
+}
+
+/***** MENU TOGGLE *************/
+
+/*  HEADER ***************************/
+header {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows:auto;
+	grid-template-areas:"logo   	  menu"
+						"header 	  header"
+						"intro-text intro-text";
+
+	
+	background-image: linear-gradient(var(--turquoise), var(--white));
+	padding-bottom: 40px;
+	padding-top: 30px;
+	border: #F6D64A 1px solid;
+}
+nav {
+	grid-area: menu;
+}
+header p {
+	grid-area: intro-text;
+	padding-left: 20px;
+}
+header a {
+	grid-area:logo;
+	text-decoration: none;
+	
+}
+header a img {
+	width: auto;
+	background-color: transparent;
+}
+h1 {
+	padding-left: 20px;
+	grid-area:header;
+}
+/*  HEADER ***************************/
+/*  PLAN ****************************/
+
+#plan {
+	display:flex;
+	flex-direction: column;
+	flex-shrink: 1;
+	background-color: var(--gold);
+	padding: 10px 0px;
+}
+#plan div{
+	/*width: auto;*/
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	
+}
+#plan section {
+	width: 92%;
+	border: 3px var(--white) solid;
+	border-radius: 8px;
+	padding:25px;
+	margin: 2px auto;
+	
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	background-color:var(--turquoise);
+}
+#plan img{
+	display:flex;
+	background-color:transparent;
+	min-width: 25%;
+	max-width: 100%;
+	/*margin:0 auto;*/
+}
+#plan section h4{
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+/* END plan ****************************/
+
+/*  ABOUT ***************************/
+
+#about {
+	padding-top: 8px;
+	padding-bottom: 5px;
+	background-color: var(--lightblue);
+	width: 100%;
+}
+/* grab each section for grid array */
+#about div section:nth-child(1){
+	grid-area: size-about;
+	/*height: auto;*/
+}
+#about div section:nth-child(2){
+	grid-area: elev-about;
+}
+#about div section:nth-child(3){
+	grid-area: loca-about;
+}
+#about div section:nth-child(4){
+	grid-area: pop-about;
+}
+/**  grab IMG H4 and p  **/
+#about div section img{
+	grid-area: img-about;
+	object-fit:contain;
+	width: 80%;
+}
+#about div section h4{
+	grid-area: h4-about;	
+}
+#about div section p{
+	grid-area: p-about;
+}
+
+#about div{
+	
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "size-about elev-about"
+						 "loca-about pop-about";
+						 justify-content:center ;
+						 align-items: center;
+						 padding-left: 10px;
+}
+#about section{
+	display:grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto 1fr 1fr;
+	grid-template-areas: "img-about"
+						 "h4-about"
+						 "p-about";
+						 justify-content: center;
+	align-items: center;
+	min-width: 110px;
+}
+
+#about section h4, #about section p{
+	
+	/*padding: 10px;*/
+	text-align: center;
+}
+/*  ABOUT ***************************/
+
+/*  Testimonials ***************************/
+
+#testimonials {
+	background-color:var(--white);
+}
+#testimonials section {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+#testimonials div section q{
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+#testimonials div section p{
+	text-align: center;
+	padding-left: 10px;
+	
+	padding-bottom: 5px;
+}
+
+#testimonials div section h4 {
+	text-align: center;
+	display: block;
+	padding:  10px 10px;
+}
+#testimonials div section img{
+	display: block;
+	/*width: 80%;*/
+	height: auto;
+	padding: 0 10%;
+}
+
+/*  Testimonials ***************************/
+
+/*  CONTACT US ***************************/
+.required {
+	font-family:'Montserrat';
+	font-size: 1rem;
+	color: var(--magenta);
+}
+.form-required {
+	font-family:'Montserrat';
+	font-style: italic;
+	font-size: 1rem;
+}
+
+form {
+	font-family:'Montserrat';
+	padding: 5px 15px;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="submit"] {
+	border: 1.5px solid #9B26B0;
+}
+.custom-select select {
+	width: 100%;
+	border: 1.5px solid #9B26B0;
+}
+/*styled radio buttons */
+/*remove radio appearance */
+
+input[type="radio"] {
+	appearance: none;
+	/* for ios < 15 remove background gradient */
+	background-color: #ffffff;
+	/* not removed via appearnce */
+	margin: 0;
+
+	font:inherit;
+	color: var(--magenta);
+	/* lines up the dot in the radio button */
+	width: .7em;
+	height: .75em;
+	border: 0.15em solid var(--magenta);
+	border-radius: 50%;
+	/*transform: translateY(0.2em);*/
+
+	/* style for checked state */
+	display: inline-flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	/*place-content: center;*/
+}
+input[type="radio"]::before {
+	content: "";
+	/* size of the dot in the radio button */
+	width: 0.45em;
+	height: 0.45em;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--magenta);
+}
+input[type="radio"]:checked::before {
+	transform: scale(1);
+}
+input[type="submit"]{
+	margin-top: 10px;
+	height: 30px;
+	color: #ffffff;
+	background-color: #9B26B0;
+}
+#names {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+	gap: 0.5em;
+}
+#nums {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+#selects {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+fieldset label:nth-child(1) {
+	grid-area: email-contact;
+}
+fieldset label:nth-child(2) {
+	grid-area: text-contact;
+}
+fieldset label:nth-child(3) {
+	grid-area: phone-contact;
+}
+fieldset {
+	display:grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas: "email-contact" "text-contact" "phone-contact";
+}
+/*  CONTACT US ***************************/
+
+@media screen and (min-width:768px) {
+	h1{
+		font-size: 3rem;
+	}
+	/*  ********   Header   *********/
+
+	header{
+
+		
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows:auto;
+		grid-template-areas:
+						"logo header     header     header"
+						"logo 	  intro-text intro-text intro-text"
+						"menu menu       menu       menu";
+	}
+	/* hide checkbox    */
+	#menu-toggle input:checked ~ ul{
+		background-color: transparent;
+		position: inherit;
+		left: 0px;
+	}
+	#menu-toggle{
+		
+		/*position: relative; */
+		 top: 0px;
+		left: 0px;
+
+	}
+
+	input[type="checkbox"]{
+		visibility: hidden;
+		height: 1px;
+	}
+	label[for="toggle"]{
+		display: block;
+		height: 1px;
+		
+		visibility: hidden;
+		padding: 0;
+	}
+	#toggle{
+		display: none;
+	}
+	ul{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		flex-grow: 1;
+		flex-shrink: 0;
+		justify-content: space-evenly;
+		position: inherit;
+		background-color: var(--white);
+		
+	}
+	li {
+		
+		text-align: center;
+		display: flex;
+		justify-content: center ;
+		height: 20px;
+		width: 150px;
+		align-items: center;
+		/*background-color:var(--gold);*/
+	/*	padding: 0px 20px; */
+		margin: 10px 10px;
+	}
+	li a {
+		background-color: var(--white);
+		padding: 10px 25px;
+	}
+	.active a{
+		background-color: var(--gold);
+	}
+	/*  ********   Header   *********/
+
+	/*  ********   Intro   *********/
+	
+
+	#intro{
+		margin: 10px 15px;
+	}
+	
+	#img-grid{
+		display:grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: "pic1-intro pic2-intro"
+							 "pic3-intro pic3-intro";
+		margin: 25px 10px;
+	}
+	
+	/*  ********   Intro   *********/
+
+	/*  ********   PLAN   *********/
+
+	#plan div {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		flex-grow: 1;
+		flex-shrink: 0;
+		align-self: center;
+	}
+	#plan section{
+		justify-content: center;
+		align-items: center;
+		max-width: 380px;
+	}
+	#plan section h4 {
+		text-align: center;
+		margin-bottom: 0;
+		padding-left: 20px;
+	}
+
+	/*  ********   PLAN   *********/
+
+	/*  ********   Testimonials   *********/
+	#testimonials section:nth-child(1){
+		grid-area: first;
+	}
+	#testimonials section:nth-child(2){
+		grid-area: second;
+	}
+	#testimonials section:nth-child(3){
+		grid-area: third;
+	}
+	#testimonials section:nth-child(4){
+		grid-area: fourth;
+	}
+	#testimonials div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: "first second"
+							 "third fourth";
+		justify-content: center;
+
+	}
+	
+	/*  ********   Testimonials   *********/
+
+	/*  ABOUT ***************************/
+	
+	#about section {
+		/*width: 250px;*/
+		justify-content: center;
+	}
+	#about div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "size-about elev-about loca-about pop-about";
+		gap: 1rem;
+		margin: 0 50px;
+		justify-content: space-around;
+	}
+
+
+	/*  ABOUT ***************************/
+
+
+	/*  CONTACT US ***************************/
+	fieldset {
+		display:grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: "email-contact text-contact phone-contact";
+	}
+
+	input[type="submit"] {
+		align-self: flex-end;
+		width: 100px;
+
+
+	/*  CONTACT US ***************************/
+
+
+}
+@media screen and (min-width:1024px) {
+
+	/**** HEADER *********************/
+	header {
+		grid-template-columns: 1fr 2fr 1fr 2fr;
+		grid-template-areas:
+		"  .     .       menu       menu      "
+		"logo header     header     header    " 
+		"logo intro-text intro-text intro-text";
+	}
+
+	/**** HEADER *********************/
+
+	/*  ********   Intro   *********/
+	
+
+	#intro div{
+		
+		
+	}
+
+	#img-grid{
+		/*display: inline;
+		grid-template-columns: 1;*/
+		
+	}
+	
+	/*  ********   Intro   *********/
+	#plan div {
+		flex-wrap: nowrap;
+		flex-grow: 1;
+		gap: 1rem;
+	}
+
+
+	/*  ********   Testimonials   *********/
+	#testimonials div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "first second third fourth";
+		justify-content: center;
+
+	}
+	
+
+	/*  ********   Testimonials   *********/
+
+	/*** FORM  **************/
+	#contact h3 {
+		grid-area: h3-contact;
+
+	}
+	#names {
+		min-width: 300px;
+		grid-area: name-contact;
+		padding: 0 15px 0 10px;
+	}
+	#nums {
+		min-width: 300px;
+		grid-area: numbers-contact;
+		padding: 0 10px;
+	}
+	#selects {
+		min-width: 300px;
+		grid-area: selects-contact;
+		padding: 0 10px 0 15px;
+	}
+	#contact form {
+		width: 100%;
+		display:grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: "h3-contact   h3-contact      h3-contact"
+							 "name-contact numbers-contact selects-contact";
+							 justify-content: center;
+							 align-items: stretch;
+	}
+	input[type="text"], input[type="tel"], input[type="email"] {
+		width:80%;
+	}
+	
+	
+		
+	}
+	select {
+		width: 80%;
+	}
+	/*** FORM  **************/
 }
