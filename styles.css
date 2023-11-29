@@ -533,6 +533,29 @@ fieldset {
 	grid-template-areas: "email-contact" "text-contact" "phone-contact";
 }
 /*  CONTACT US ***************************/
+
+/*   footer  ****/
+
+footer{
+	height: 150px;
+	background-color: #EAEAEA;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	flex-wrap: nowrap;
+	text-align: center;
+	justify-content: center;
+	font-size: small;
+}
+footer a{
+	text-decoration: none;
+	font-family: 'Montserrat' sans-serif;
+	font-size: small;
+}
+
+
+
+
 @media screen and (min-width:450px){
 	h1{
 		font-size: 2.0rem;
@@ -711,10 +734,19 @@ fieldset {
 	input[type="submit"] {
 		align-self: flex-end;
 		width: 100px;
-
+	}
 
 	/*  CONTACT US ***************************/
-
+	footer{
+		height: 100px;
+		background-color: #EAEAEA;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		gap: 1em;
+		flex-wrap: nowrap;
+		padding-top: 40px;
+	}
 
 }
 @media screen and (min-width:1024px) {
@@ -733,14 +765,28 @@ fieldset {
 	/*  ********   Intro   *********/
 	
 	/*  ********   Intro   *********/
+	h1{
+		font-size: 4.0rem;
+	}
+	h2{
+		font-size: 3.0rem;
+	}
+	h3 {
+		font-size: 2.5rem;
+	}
+	#plan {
+		padding-top: 70px;
+		padding-bottom: 100px;
+	}
 	#plan div {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		
 		flex-wrap: nowrap;
 		flex-grow: 1;
 		gap: 1rem;
 	}
-
+	#plan section h4 {
+		align-self: flex-start;
+	}
 
 	/*  ********   Testimonials   *********/
 	#testimonials div {
@@ -789,9 +835,20 @@ fieldset {
 		width:80%;
 	}
 	
-	
-		
+	footer{
+		height: 100px;
+		background-color: #EAEAEA;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		gap: 1em;
+		flex-wrap: nowrap;
+		padding-top: 40px;
 	}
+	footer p{
+		flex: 1 0 0;;
+	}
+	
 	select {
 		width: 80%;
 	}
